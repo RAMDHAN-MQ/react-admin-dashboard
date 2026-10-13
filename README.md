@@ -4,4 +4,4 @@
 1. React
 2. Vite
 3. Tailwind CSS
-4. 
+4. TypeScript
