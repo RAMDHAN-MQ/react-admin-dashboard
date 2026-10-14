@@ -6,7 +6,7 @@ import {
   PanelLeftClose,
   User,
 } from "lucide-react";
-import IconButton from "./IconButton";
+import IconButton from "../ui/IconButton";
 import type { ReactNode } from "react";
 
 type Props = {
@@ -16,7 +16,7 @@ type Props = {
 export default function MainContent({ children }: Props) {
   return (
     <div className="main-content bg-tema-4 flex-1">
-      <div className="nav border-b border-b-tema-2 flex items-center justify-between h-16 p-5">
+      <div className="nav border-b border-b-tema-3 flex items-center justify-between h-16 p-5">
         <div className="nav-kiri flex gap-2 items-center font-semibold text-sm">
           <IconButton
             icon={<PanelLeftClose size={20} />}

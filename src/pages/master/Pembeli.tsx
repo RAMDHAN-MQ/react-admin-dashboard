@@ -1,3 +1,5 @@
+import HeaderMaster from "../../components/ui/HeaderMaster";
+
 export default function Pembeli() {
-  return <h1>pembeli</h1>;
+  return <HeaderMaster />;
 }

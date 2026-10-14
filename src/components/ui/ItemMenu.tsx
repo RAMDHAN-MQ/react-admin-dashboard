@@ -13,7 +13,7 @@ export default function ItemMenu({ logo, text, to }: Props) {
       to={to}
       end={to === "/"}
       className={({ isActive }) =>
-        `flex items-center gap-3 px-3 py-2 mx-3 rounded-xl transition-colors ${
+        `flex items-center gap-3 px-3 py-2 mx-3 my-1 rounded-xl transition-colors text-gray-400 ${
           isActive ? "bg-tema-3 text-white" : "hover:bg-tema-3 hover:text-white"
         }`
       }
