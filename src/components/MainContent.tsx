@@ -18,9 +18,13 @@ export default function MainContent() {
             keterangan="text-primary"
             onClick={() => {}}
           />
-          <span className="text-gray-400">Dashboard</span>
+          <a href="" className="text-gray-400">
+            Dashboard
+          </a>
           <ChevronRight size={16} className={"text-gray-400"} />
-          <span className="text-primary">Penjualan</span>
+          <a href="" className="text-primary">
+            Penjualan
+          </a>
         </div>
         <div className="nav-kanan flex gap-1 items-center text-white ">
           <IconButton
@@ -46,7 +50,9 @@ export default function MainContent() {
       <div className="content p-5">
         <div className="welcome-banner rounded-xl p-5 text-white bg-linear-to-r from-indigo-500 to-blue-500">
           <h1 className="text-2xl font-semibold">Selamat Datang, Admin</h1>
-          <small>Sudah terbeli 10 hari ini!</small>
+          <small>
+            Sudah terbeli <span className="font-bold">10 Barang</span> hari ini!
+          </small>
         </div>
 
         <div className="grid grid-cols-3 gap-4 mt-4">

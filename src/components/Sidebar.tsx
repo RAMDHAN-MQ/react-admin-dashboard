@@ -1,3 +1,4 @@
+import { BookUser, LayoutDashboard, Package, Truck, User } from "lucide-react";
 import ItemMenu from "./ItemMenu";
 
 export default function Sidebar() {
@@ -9,16 +10,14 @@ export default function Sidebar() {
 
       <div className="menu text-gray-300 text-sm">
         <div className="menu-item my-5">
-          <span className="px-5">DASHBOARD</span>
-          <ItemMenu logo={"L"} text={"Menu 1"} />
-          <ItemMenu logo={"L"} text={"Menu 2"} />
+          <ItemMenu logo={<LayoutDashboard size={20} />} text={"Dashboard"} />
         </div>
         <div className="menu-item my-5">
           <span className="px-5">MASTER</span>
-          <ItemMenu logo={"L"} text={"Menu 1"} />
-          <ItemMenu logo={"L"} text={"Menu 2"} />
-          <ItemMenu logo={"L"} text={"Menu 3"} />
-          <ItemMenu logo={"L"} text={"Menu 4"} />
+          <ItemMenu logo={<Truck size={20} />} text={"Pesanan"} />
+          <ItemMenu logo={<Package size={20} />} text={"Produk"} />
+          <ItemMenu logo={<BookUser size={20} />} text={"Pembeli"} />
+          <ItemMenu logo={<User size={20} />} text={"Users"} />
         </div>
       </div>
     </div>
