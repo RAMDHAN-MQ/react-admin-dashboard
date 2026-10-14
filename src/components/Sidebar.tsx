@@ -10,14 +10,22 @@ export default function Sidebar() {
 
       <div className="menu text-gray-300 text-sm">
         <div className="menu-item my-5">
-          <ItemMenu logo={<LayoutDashboard size={20} />} text={"Dashboard"} />
+          <ItemMenu
+            logo={<LayoutDashboard size={20} />}
+            text={"Dashboard"}
+            to="/"
+          />
         </div>
         <div className="menu-item my-5">
           <span className="px-5">MASTER</span>
-          <ItemMenu logo={<Truck size={20} />} text={"Pesanan"} />
-          <ItemMenu logo={<Package size={20} />} text={"Produk"} />
-          <ItemMenu logo={<BookUser size={20} />} text={"Pembeli"} />
-          <ItemMenu logo={<User size={20} />} text={"Users"} />
+          <ItemMenu logo={<Truck size={20} />} text={"Pesanan"} to="/pesanan" />
+          <ItemMenu logo={<Package size={20} />} text={"Produk"} to="/produk" />
+          <ItemMenu
+            logo={<BookUser size={20} />}
+            text={"Pembeli"}
+            to="/pembeli"
+          />
+          <ItemMenu logo={<User size={20} />} text={"Users"} to="/users" />
         </div>
       </div>
     </div>

@@ -7,8 +7,13 @@ import {
   User,
 } from "lucide-react";
 import IconButton from "./IconButton";
+import type { ReactNode } from "react";
 
-export default function MainContent() {
+type Props = {
+  children: ReactNode;
+};
+
+export default function MainContent({ children }: Props) {
   return (
     <div className="main-content bg-tema-4 flex-1">
       <div className="nav border-b border-b-tema-2 flex items-center justify-between h-16 p-5">
@@ -47,22 +52,7 @@ export default function MainContent() {
         </div>
       </div>
 
-      <div className="content p-5">
-        <div className="welcome-banner rounded-xl p-5 text-white bg-linear-to-r from-indigo-500 to-blue-500">
-          <h1 className="text-2xl font-semibold">Selamat Datang, Admin</h1>
-          <small>
-            Sudah terbeli <span className="font-bold">10 Barang</span> hari ini!
-          </small>
-        </div>
-
-        <div className="grid grid-cols-3 gap-4 mt-4">
-          <div className="bg-tema-3 p-5 h-64 col-span-2 rounded-xl">card</div>
-          <div className="bg-tema-3 p-5 h-64 rounded-xl">card</div>
-          <div className="bg-tema-3 p-5 h-64 rounded-xl">card</div>
-          <div className="bg-tema-3 p-5 h-64 rounded-xl">card</div>
-          <div className="bg-tema-3 p-5 h-64 rounded-xl">card</div>
-        </div>
-      </div>
+      <div className="content p-5">{children}</div>
     </div>
   );
 }
