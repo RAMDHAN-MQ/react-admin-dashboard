@@ -1,3 +1,11 @@
+import HeaderMaster from "../../components/ui/HeaderMaster";
+
 export default function Users() {
-  return <h1>Users</h1>;
+  return (
+    <HeaderMaster
+      judul="Users"
+      keterangan="Tabel seluruh users atau karyawan"
+      url="/asdasda"
+    />
+  );
 }

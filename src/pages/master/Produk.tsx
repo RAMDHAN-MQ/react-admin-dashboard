@@ -1,3 +1,11 @@
+import HeaderMaster from "../../components/ui/HeaderMaster";
+
 export default function Produk() {
-  return <h1>Produk</h1>;
+  return (
+    <HeaderMaster
+      judul="Produk"
+      keterangan="Tabel seluruh produk yang dipunya"
+      url="/asdasda"
+    />
+  );
 }

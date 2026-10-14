@@ -1,3 +1,12 @@
+import HeaderMaster from "../../components/ui/HeaderMaster";
+
 export default function Pesanan() {
-  return <h1>Pesanan</h1>;
+  return (
+    <HeaderMaster
+      judul="Pesanan"
+      keterangan="Tabel berisi seluruh detail pesanan"
+      url="/asdasda"
+    />
+  );
+  
 }
