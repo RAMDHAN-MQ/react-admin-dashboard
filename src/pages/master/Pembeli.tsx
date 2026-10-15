@@ -8,6 +8,35 @@ export default function Pembeli() {
     { value: "aktif", text: "Aktif" },
     { value: "tidak aktif", text: "Tidak Aktif" },
   ];
+
+  const column = [
+    { key: "nama", head: "Nama" },
+    { key: "email", head: "Email" },
+    { key: "pembelian", head: "Pembelian" },
+    { key: "status", head: "Status" },
+  ];
+
+  const row = [
+    {
+      nama: "Ramdhan",
+      email: "ramdhan@gmail.com",
+      pembelian: 200000,
+      status: "Aktif",
+    },
+    {
+      nama: "Maulana",
+      email: "maulana@gmail.com",
+      pembelian: 50000,
+      status: "Aktif",
+    },
+    {
+      nama: "Qolbi",
+      email: "qolbi@gmail.com",
+      pembelian: 1000000,
+      status: "Tidak Aktif",
+    },
+  ];
+
   return (
     <>
       <HeaderMaster
@@ -16,7 +45,7 @@ export default function Pembeli() {
         url="/asdasda"
       />
       <SearchFilter select={filterSelect} />
-      <Table />
+      <Table column={column} data={row} />
     </>
   );
 }

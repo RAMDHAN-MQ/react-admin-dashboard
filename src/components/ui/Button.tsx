@@ -2,11 +2,12 @@ import type { ReactNode } from "react";
 
 type Props = {
   icon: ReactNode;
-  text: string;
+  text?: string;
   onClick: () => void;
-  type: "button" | "submit";
+  type?: "button" | "submit";
   variant: string;
-  disabled: boolean;
+  disabled?: boolean;
+  iconOnly?: boolean;
 };
 
 export default function Button({
@@ -16,11 +17,21 @@ export default function Button({
   type = "button",
   variant,
   disabled = false,
+  iconOnly = false,
 }: Props) {
+  let warna;
+  switch (variant) {
+    case "primary":
+      warna = "bg-primary";
+      break;
+    default:
+      warna = "";
+  }
+
   return (
     <button
       type={type}
-      className={`px-3 py-2 text-white flex items-center gap-2 rounded text-sm cursor-pointer bg-${variant}`}
+      className={`text-white flex items-center ${iconOnly ? "p-1" : "gap-2 px-3 py-2"} rounded text-sm cursor-pointer ${warna}`}
       onClick={onClick}
       disabled={disabled}
     >
