@@ -1,5 +1,6 @@
 import HeaderMaster from "../../components/ui/HeaderMaster";
 import SearchFilter from "../../components/ui/SearchFilter";
+import Table from "../../components/ui/Table";
 
 export default function Pembeli() {
   const filterSelect = [
@@ -15,6 +16,7 @@ export default function Pembeli() {
         url="/asdasda"
       />
       <SearchFilter select={filterSelect} />
+      <Table />
     </>
   );
 }

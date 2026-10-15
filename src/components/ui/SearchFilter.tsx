@@ -9,7 +9,7 @@ type Props = {
 
 export default function SearchFilter({ select }: Props) {
   return (
-    <div className="mt-5">
+    <div className="my-5">
       <input
         type="text"
         placeholder="Cari..."
