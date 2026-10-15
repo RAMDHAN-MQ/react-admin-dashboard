@@ -42,7 +42,7 @@ export default function MainContent({ children }: Props) {
             keterangan=""
             onClick={() => {}}
           />
-          <button className="profile flex items-center gap-2 cursor-pointer rounded-xl py-2 px-3 bg-tema-3 text-sm">
+          <button className="profile flex items-center gap-2 cursor-pointer rounded py-2 px-3 bg-tema-3 text-sm">
             <User size={20} />
             <span>Ramdhan</span>
             <span className="text-xs">

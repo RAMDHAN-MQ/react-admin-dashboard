@@ -20,7 +20,7 @@ export default function Button({
   return (
     <button
       type={type}
-      className={`px-3 py-2 text-white flex items-center gap-2 rounded-xl text-sm cursor-pointer bg-${variant} `}
+      className={`px-3 py-2 text-white flex items-center gap-2 rounded text-sm cursor-pointer bg-${variant}`}
       onClick={onClick}
       disabled={disabled}
     >

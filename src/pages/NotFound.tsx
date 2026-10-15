@@ -10,7 +10,7 @@ export default function NotFound() {
         </div>
         <NavLink
           to="/"
-          className="px-3 py-2 bg-tema-4 rounded-xl text-white hover:bg-tema-4-shadow"
+          className="px-3 py-2 bg-tema-4 rounded text-white hover:bg-tema-4-shadow"
         >
           Kembali Ke Dashboard
         </NavLink>
