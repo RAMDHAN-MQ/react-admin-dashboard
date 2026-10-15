@@ -1,4 +1,4 @@
-import { SquarePen, Trash } from "lucide-react";
+import { Eye, SquarePen, Trash } from "lucide-react";
 import Button from "./Button";
 
 type TableColumn = {
@@ -41,6 +41,12 @@ export default function Table({ column, data }: Props) {
               ))}
               <td key={"aksi"} className="px-6 py-2">
                 <div className="flex gap-2">
+                  <Button
+                    icon={<Eye size={16} />}
+                    variant="primary"
+                    iconOnly={true}
+                    onClick={() => alert("btn view ditekan")}
+                  />
                   <Button
                     icon={<SquarePen size={16} />}
                     variant="primary"
