@@ -18,7 +18,7 @@ export default function SearchFilter({ select }: Props) {
       <select
         name=""
         id=""
-        className="bg-tema-3 px-3 py-2 rounded text-white outline-0 w-36"
+        className="bg-tema-3 px-3 py-2 rounded text-white outline-0 w-36 border-r-12 border-tema-3"
       >
         {select.map((e) => (
           <option value={e.value}>{e.text}</option>
