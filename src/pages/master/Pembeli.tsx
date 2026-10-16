@@ -42,7 +42,7 @@ export default function Pembeli() {
       <HeaderMaster
         judul="Pembeli"
         keterangan="Tabel seluruh pembeli"
-        url="/asdasda"
+        url="/pembeli/form"
       />
       <SearchFilter select={filterSelect} />
       <Table column={column} data={row} />

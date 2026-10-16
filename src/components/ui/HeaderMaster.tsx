@@ -11,10 +11,6 @@ type Props = {
 export default function HeaderMaster({ judul, keterangan, url }: Props) {
   const navigate = useNavigate();
 
-  function handleClick() {
-    navigate(url);
-  }
-
   return (
     <div className="flex justify-between items-center">
       <div className="text-white flex flex-col">
@@ -25,7 +21,7 @@ export default function HeaderMaster({ judul, keterangan, url }: Props) {
         <Button
           text="Tambah Data"
           icon={<Plus size={16} />}
-          onClick={handleClick}
+          onClick={() => navigate(url)}
           type="button"
           variant="primary"
           disabled={false}

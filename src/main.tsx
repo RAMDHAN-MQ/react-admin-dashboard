@@ -9,6 +9,7 @@ import Pesanan from "./pages/master/Pesanan.tsx";
 import Produk from "./pages/master/Produk.tsx";
 import Users from "./pages/master/Users.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import FormPembeli from "./pages/Pembeli/FormPembeli.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -20,6 +21,8 @@ createRoot(document.getElementById("root")!).render(
           <Route path="pesanan" element={<Pesanan />}></Route>
           <Route path="produk" element={<Produk />}></Route>
           <Route path="users" element={<Users />}></Route>
+
+          <Route path="pembeli/form" element={<FormPembeli />}></Route>
         </Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>

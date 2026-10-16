@@ -1,13 +1,14 @@
 import type { ReactNode } from "react";
 
 type Props = {
-  icon: ReactNode;
+  icon?: ReactNode;
   text?: string;
   onClick: () => void;
   type?: "button" | "submit";
   variant: string;
   disabled?: boolean;
   iconOnly?: boolean;
+  textOnly?: boolean;
 };
 
 export default function Button({
@@ -18,11 +19,15 @@ export default function Button({
   variant,
   disabled = false,
   iconOnly = false,
+  textOnly = false,
 }: Props) {
   let warna;
   switch (variant) {
     case "primary":
-      warna = "bg-primary";
+      warna = "text-white bg-primary hover:bg-primary-shadow";
+      break;
+    case "cancel":
+      warna = "text-white font-bold hover:bg-tema-3-shadow";
       break;
     default:
       warna = "";
@@ -31,7 +36,7 @@ export default function Button({
   return (
     <button
       type={type}
-      className={`text-white flex items-center ${iconOnly ? "p-1" : "gap-2 px-3 py-2"} rounded text-sm cursor-pointer ${warna}`}
+      className={`flex items-center ${iconOnly ? "p-1" : textOnly ? "px-3 py-2" : "gap-2 px-3 py-2"} rounded text-sm cursor-pointer ${warna}`}
       onClick={onClick}
       disabled={disabled}
     >
