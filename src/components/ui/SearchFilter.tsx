@@ -5,23 +5,37 @@ type SelectProps = {
 
 type Props = {
   select: SelectProps[];
+  search: string;
+  onSearch: (value: string) => void;
+  filter: string;
+  onFilter: (value: string) => void;
 };
 
-export default function SearchFilter({ select }: Props) {
+export default function SearchFilter({
+  select,
+  search,
+  onSearch,
+  filter,
+  onFilter,
+}: Props) {
   return (
     <div className="my-5">
       <input
         type="text"
         placeholder="Cari..."
         className="bg-tema-3 px-3 py-2 rounded text-white outline-0 w-80 mr-2"
+        value={search}
+        onChange={(e) => onSearch(e.target.value)}
       />
       <select
-        name=""
-        id=""
+        value={filter}
+        onChange={(e) => onFilter(e.target.value)}
         className="bg-tema-3 px-3 py-2 rounded text-white outline-0 w-36 border-r-12 border-tema-3"
       >
         {select.map((e) => (
-          <option value={e.value}>{e.text}</option>
+          <option key={e.value} value={e.value}>
+            {e.text}
+          </option>
         ))}
       </select>
     </div>
