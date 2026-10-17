@@ -1,5 +1,6 @@
-import { Eye, SquarePen, Trash } from "lucide-react";
+import { ChevronLeft, ChevronRight, Eye, SquarePen, Trash } from "lucide-react";
 import Button from "./Button";
+import { useState } from "react";
 
 type TableColumn = {
   key: string;
@@ -16,6 +17,14 @@ type Props = {
 };
 
 export default function Table({ column, data }: Props) {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+  const totalPage = Math.ceil(data.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+
+  const dataPage = data.slice(startIndex, startIndex + itemsPerPage);
+
   return (
     <div className="overflow-x-auto my-5 rounded">
       <table className="w-full text-left">
@@ -32,7 +41,7 @@ export default function Table({ column, data }: Props) {
           </tr>
         </thead>
         <tbody className="text-gray-300 bg-tema-4-shadow">
-          {data.map((row, index) => (
+          {dataPage.map((row, index) => (
             <tr key={index} className="border-b border-b-tema-2 ">
               {column.map((column) => (
                 <td key={column.key} className="px-6 py-2">
@@ -65,6 +74,28 @@ export default function Table({ column, data }: Props) {
           ))}
         </tbody>
       </table>
+
+      <div className="flex justify-between my-3">
+        <span className="text-white">
+          Halaman {currentPage} dari {totalPage}
+        </span>
+        <div className="flex gap-2">
+          <Button
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage((e) => e - 1)}
+            variant="primary"
+            iconOnly={true}
+            icon={<ChevronLeft size={16} />}
+          />
+          <Button
+            disabled={currentPage === totalPage || totalPage === 0}
+            onClick={() => setCurrentPage((e) => e + 1)}
+            variant="primary"
+            iconOnly={true}
+            icon={<ChevronRight size={16} />}
+          />
+        </div>
+      </div>
     </div>
   );
 }
