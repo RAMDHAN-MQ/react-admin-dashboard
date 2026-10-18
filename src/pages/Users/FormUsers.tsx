@@ -35,7 +35,7 @@ export default function FormUsers() {
           <Button
             text="Batal"
             variant="cancel"
-            onClick={() => navigate("/users")}
+            onClick={() => navigate("/master/users")}
             textOnly={true}
           />
           <Button

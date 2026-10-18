@@ -19,7 +19,7 @@ export default function Users() {
       <HeaderMaster
         judul="Users"
         keterangan="Tabel seluruh users atau karyawan"
-        url="/users/form"
+        url="/master/users/form"
       />
       <SearchFilter
         select={filterSelect}

@@ -35,7 +35,7 @@ export default function FormProduk() {
           <Button
             text="Batal"
             variant="cancel"
-            onClick={() => navigate("/produk")}
+            onClick={() => navigate("/master/produk")}
             textOnly={true}
           />
           <Button

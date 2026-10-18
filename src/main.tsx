@@ -20,15 +20,15 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Dashboard />}></Route>
-          <Route path="pembeli" element={<Pembeli />}></Route>
-          <Route path="pesanan" element={<Pesanan />}></Route>
-          <Route path="produk" element={<Produk />}></Route>
-          <Route path="users" element={<Users />}></Route>
+          <Route path="master/pembeli" element={<Pembeli />}></Route>
+          <Route path="master/pesanan" element={<Pesanan />}></Route>
+          <Route path="master/produk" element={<Produk />}></Route>
+          <Route path="master/users" element={<Users />}></Route>
 
-          <Route path="pembeli/form" element={<FormPembeli />}></Route>
-          <Route path="pesanan/form" element={<FormPesanan />}></Route>
-          <Route path="produk/form" element={<FormProduk />}></Route>
-          <Route path="users/form" element={<FormUsers />}></Route>
+          <Route path="master/pembeli/form" element={<FormPembeli />}></Route>
+          <Route path="master/pesanan/form" element={<FormPesanan />}></Route>
+          <Route path="master/produk/form" element={<FormProduk />}></Route>
+          <Route path="master/users/form" element={<FormUsers />}></Route>
         </Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>

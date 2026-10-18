@@ -18,14 +18,14 @@ export default function Sidebar() {
         </div>
         <div className="menu-item my-5">
           <span className="px-5">MASTER</span>
-          <ItemMenu logo={<Truck size={20} />} text={"Pesanan"} to="/pesanan" />
-          <ItemMenu logo={<Package size={20} />} text={"Produk"} to="/produk" />
+          <ItemMenu logo={<Truck size={20} />} text={"Pesanan"} to="master/pesanan" />
+          <ItemMenu logo={<Package size={20} />} text={"Produk"} to="master/produk" />
           <ItemMenu
             logo={<BookUser size={20} />}
             text={"Pembeli"}
-            to="/pembeli"
+            to="master/pembeli"
           />
-          <ItemMenu logo={<User size={20} />} text={"Users"} to="/users" />
+          <ItemMenu logo={<User size={20} />} text={"Users"} to="master/users" />
         </div>
       </div>
     </div>

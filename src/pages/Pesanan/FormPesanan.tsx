@@ -35,7 +35,7 @@ export default function FormPesanan() {
           <Button
             text="Batal"
             variant="cancel"
-            onClick={() => navigate("/pesanan")}
+            onClick={() => navigate("/master/pesanan")}
             textOnly={true}
           />
           <Button

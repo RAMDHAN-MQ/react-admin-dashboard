@@ -1,12 +1,6 @@
-import {
-  Bell,
-  ChevronDown,
-  ChevronRight,
-  Moon,
-  PanelLeftClose,
-  User,
-} from "lucide-react";
+import { Bell, ChevronDown, Moon, PanelLeftClose, User } from "lucide-react";
 import IconButton from "../ui/IconButton";
+import Breadcrumb from "../ui/Breadcrumb";
 import type { ReactNode } from "react";
 
 type Props = {
@@ -23,13 +17,7 @@ export default function MainContent({ children }: Props) {
             keterangan="text-primary"
             onClick={() => {}}
           />
-          <a href="" className="text-gray-400">
-            Dashboard
-          </a>
-          <ChevronRight size={16} className={"text-gray-400"} />
-          <a href="" className="text-primary">
-            Penjualan
-          </a>
+          <Breadcrumb />
         </div>
         <div className="nav-kanan flex gap-1 items-center text-white ">
           <IconButton

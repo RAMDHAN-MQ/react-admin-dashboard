@@ -34,7 +34,7 @@ export default function FormPembeli() {
           <Button
             text="Batal"
             variant="cancel"
-            onClick={() => navigate("/pembeli")}
+            onClick={() => navigate("/master/pembeli")}
             textOnly={true}
           />
           <Button

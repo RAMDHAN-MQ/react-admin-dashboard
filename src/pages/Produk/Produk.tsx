@@ -19,7 +19,7 @@ export default function Produk() {
       <HeaderMaster
         judul="Produk"
         keterangan="Tabel seluruh produk yang dipunya"
-        url="/produk/form"
+        url="/master/produk/form"
       />
       <SearchFilter
         select={filterSelect}
