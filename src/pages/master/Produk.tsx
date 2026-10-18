@@ -2,6 +2,7 @@ import HeaderMaster from "../../components/ui/HeaderMaster";
 import SearchFilter from "../../components/ui/SearchFilter";
 import Table from "../../components/ui/Table";
 import { column, row } from "../../data/DataProduk";
+import { useSearchFilter } from "../../hooks/useSearchFilter";
 
 export default function Produk() {
   const filterSelect = [
@@ -9,6 +10,10 @@ export default function Produk() {
     { value: "tersedia", text: "Tersedia" },
     { value: "habis", text: "Habis" },
   ];
+
+  const { search, setSearch, filter, setFilter, dataFiltered } =
+    useSearchFilter(row, "produk", "status");
+
   return (
     <>
       <HeaderMaster
@@ -16,8 +21,14 @@ export default function Produk() {
         keterangan="Tabel seluruh produk yang dipunya"
         url="/asdasda"
       />
-      <SearchFilter select={filterSelect} />
-      <Table column={column} data={row} />
+      <SearchFilter
+        select={filterSelect}
+        filter={filter}
+        search={search}
+        onFilter={(e) => setFilter(e)}
+        onSearch={(e) => setSearch(e)}
+      />
+      <Table column={column} data={dataFiltered} />
     </>
   );
 }

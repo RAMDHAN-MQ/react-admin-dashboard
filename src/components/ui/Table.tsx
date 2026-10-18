@@ -27,7 +27,7 @@ export default function Table({ column, data }: Props) {
 
   return (
     <div className="overflow-x-auto my-5 rounded">
-      <table className="w-full text-left">
+      <table className="w-full text-left table-auto">
         <thead className="text-white border-b bg-tema-3">
           <tr>
             {column.map((e) => (

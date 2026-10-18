@@ -2,6 +2,7 @@ import HeaderMaster from "../../components/ui/HeaderMaster";
 import SearchFilter from "../../components/ui/SearchFilter";
 import Table from "../../components/ui/Table";
 import { column, row } from "../../data/DataPemesanan";
+import { useSearchFilter } from "../../hooks/useSearchFilter";
 
 export default function Pesanan() {
   const filterSelect = [
@@ -12,6 +13,9 @@ export default function Pesanan() {
     { value: "selesai", text: "Selesai" },
   ];
 
+  const { search, setSearch, filter, setFilter, dataFiltered } =
+    useSearchFilter(row, "nama", "status");
+
   return (
     <>
       <HeaderMaster
@@ -19,8 +23,14 @@ export default function Pesanan() {
         keterangan="Tabel seluruh detail pesanan"
         url="/asdasda"
       />
-      <SearchFilter select={filterSelect} />
-      <Table column={column} data={row} />
+      <SearchFilter
+        select={filterSelect}
+        filter={filter}
+        search={search}
+        onFilter={(e) => setFilter(e)}
+        onSearch={(e) => setSearch(e)}
+      />
+      <Table column={column} data={dataFiltered} />
     </>
   );
 }

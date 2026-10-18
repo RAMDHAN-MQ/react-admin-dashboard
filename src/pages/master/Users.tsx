@@ -2,6 +2,7 @@ import HeaderMaster from "../../components/ui/HeaderMaster";
 import SearchFilter from "../../components/ui/SearchFilter";
 import Table from "../../components/ui/Table";
 import { column, row } from "../../data/DataUsers";
+import { useSearchFilter } from "../../hooks/useSearchFilter";
 
 export default function Users() {
   const filterSelect = [
@@ -10,6 +11,9 @@ export default function Users() {
     { value: "tidak aktif", text: "Tidak Aktif" },
   ];
 
+  const { filter, search, setFilter, setSearch, dataFiltered } =
+    useSearchFilter(row, "nama", "status");
+
   return (
     <>
       <HeaderMaster
@@ -17,8 +21,14 @@ export default function Users() {
         keterangan="Tabel seluruh users atau karyawan"
         url="/asdasda"
       />
-      <SearchFilter select={filterSelect} />
-      <Table column={column} data={row} />
+      <SearchFilter
+        select={filterSelect}
+        filter={filter}
+        search={search}
+        onFilter={(e) => setFilter(e)}
+        onSearch={(e) => setSearch(e)}
+      />
+      <Table column={column} data={dataFiltered} />
     </>
   );
 }
