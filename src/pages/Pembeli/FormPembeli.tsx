@@ -17,17 +17,17 @@ export default function FormPembeli() {
           <InputForm
             label="Email"
             type="inputText"
-            placeholder="Masukkan Nama..."
+            placeholder="Masukkan Email..."
           />
           <InputForm
             label="Pembelian"
             type="inputText"
-            placeholder="Masukkan Nama..."
+            placeholder="Masukkan Pembelian..."
           />
           <InputForm
             label="Status"
             type="inputText"
-            placeholder="Masukkan Nama..."
+            placeholder="Masukkan Status..."
           />
         </div>
         <div className="flex justify-end gap-2">
