@@ -1,25 +1,25 @@
 import HeaderMaster from "../../components/ui/HeaderMaster";
 import SearchFilter from "../../components/ui/SearchFilter";
 import Table from "../../components/ui/Table";
-import { column, row } from "../../data/DataProduk";
+import { column, row } from "../../data/DataUsers";
 import { useSearchFilter } from "../../hooks/useSearchFilter";
 
-export default function Produk() {
+export default function Users() {
   const filterSelect = [
     { value: "semua", text: "Semua" },
-    { value: "tersedia", text: "Tersedia" },
-    { value: "habis", text: "Habis" },
+    { value: "aktif", text: "Aktif" },
+    { value: "tidak aktif", text: "Tidak Aktif" },
   ];
 
-  const { search, setSearch, filter, setFilter, dataFiltered } =
-    useSearchFilter(row, "produk", "status");
+  const { filter, search, setFilter, setSearch, dataFiltered } =
+    useSearchFilter(row, "nama", "status");
 
   return (
     <>
       <HeaderMaster
-        judul="Produk"
-        keterangan="Tabel seluruh produk yang dipunya"
-        url="/asdasda"
+        judul="Users"
+        keterangan="Tabel seluruh users atau karyawan"
+        url="/users/form"
       />
       <SearchFilter
         select={filterSelect}

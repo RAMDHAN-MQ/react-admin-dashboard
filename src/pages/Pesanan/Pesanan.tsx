@@ -21,7 +21,7 @@ export default function Pesanan() {
       <HeaderMaster
         judul="Pesanan"
         keterangan="Tabel seluruh detail pesanan"
-        url="/asdasda"
+        url="/pesanan/form"
       />
       <SearchFilter
         select={filterSelect}
