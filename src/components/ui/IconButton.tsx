@@ -3,13 +3,13 @@ import type { ReactNode } from "react";
 type Props = {
   icon: ReactNode;
   onClick: () => void;
-  keterangan: string;
+  variant: string;
 };
 
-export default function IconButton({ icon, onClick, keterangan = "" }: Props) {
+export default function IconButton({ icon, onClick, variant = "" }: Props) {
   return (
     <button
-      className={`${keterangan} p-1.5 cursor-pointer rounded hover:bg-tema-4-shadow`}
+      className={`${variant} p-1.5 cursor-pointer rounded hover:bg-tema-4-shadow`}
       onClick={onClick}
     >
       {icon}

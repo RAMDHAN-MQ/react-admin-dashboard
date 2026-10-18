@@ -14,22 +14,14 @@ export default function MainContent({ children }: Props) {
         <div className="nav-kiri flex gap-2 items-center font-semibold text-sm">
           <IconButton
             icon={<PanelLeftClose size={20} />}
-            keterangan="text-primary"
+            variant="text-primary"
             onClick={() => {}}
           />
           <Breadcrumb />
         </div>
         <div className="nav-kanan flex gap-1 items-center text-white ">
-          <IconButton
-            icon={<Moon size={20} />}
-            keterangan=""
-            onClick={() => {}}
-          />
-          <IconButton
-            icon={<Bell size={20} />}
-            keterangan=""
-            onClick={() => {}}
-          />
+          <IconButton icon={<Moon size={20} />} variant="" onClick={() => {}} />
+          <IconButton icon={<Bell size={20} />} variant="" onClick={() => {}} />
           <button className="profile flex items-center gap-2 cursor-pointer rounded py-2 px-3 bg-tema-3 text-sm">
             <User size={20} />
             <span>Ramdhan</span>
