@@ -7,7 +7,7 @@ export default function FormPembeli() {
 
   return (
     <div className="bg-tema-3 p-5 rounded">
-      <form action="" className="">
+      <form>
         <div className="grid grid-cols-2">
           <InputForm
             label="Nama"

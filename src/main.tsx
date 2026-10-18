@@ -4,12 +4,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import App from "./App.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
-import Pembeli from "./pages/master/Pembeli.tsx";
-import Pesanan from "./pages/master/Pesanan.tsx";
-import Produk from "./pages/master/Produk.tsx";
-import Users from "./pages/master/Users.tsx";
+import Pembeli from "./pages/Pembeli/Pembeli.tsx";
+import Pesanan from "./pages/Pesanan/Pesanan.tsx";
+import Produk from "./pages/Produk/Produk.tsx";
+import Users from "./pages/Users/Users.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import FormPembeli from "./pages/Pembeli/FormPembeli.tsx";
+import FormPesanan from "./pages/Pesanan/FormPesanan.tsx";
+import FormProduk from "./pages/Produk/FormProduk.tsx";
+import FormUsers from "./pages/Users/FormUsers.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -23,6 +26,9 @@ createRoot(document.getElementById("root")!).render(
           <Route path="users" element={<Users />}></Route>
 
           <Route path="pembeli/form" element={<FormPembeli />}></Route>
+          <Route path="pesanan/form" element={<FormPesanan />}></Route>
+          <Route path="produk/form" element={<FormProduk />}></Route>
+          <Route path="users/form" element={<FormUsers />}></Route>
         </Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
