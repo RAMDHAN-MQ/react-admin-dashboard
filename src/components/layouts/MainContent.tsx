@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import IconButton from "../ui/IconButton";
 import Breadcrumb from "../ui/Breadcrumb";
-import { useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import NotificationItem from "../ui/NotificationItem";
 
@@ -22,6 +22,27 @@ export default function MainContent({ children }: Props) {
     profile: false,
     notifikasi: false,
   });
+
+  const profileRef = useRef<HTMLDivElement>(null);
+  const notifRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleCloseNotif(event: MouseEvent) {
+      const target = event.target as Node;
+
+      if (
+        !profileRef.current?.contains(target) &&
+        !notifRef.current?.contains(target)
+      ) {
+        setIsDrop({
+          notifikasi: false,
+          profile: false,
+        });
+      }
+    }
+
+    document.addEventListener("mousedown", handleCloseNotif);
+  }, []);
 
   const [notif, setNotif] = useState([
     {
@@ -80,7 +101,7 @@ export default function MainContent({ children }: Props) {
         </div>
         <div className="nav-kanan flex gap-1 items-center text-white">
           <IconButton icon={<Moon size={20} />} onClick={() => {}} />
-          <div className="relative">
+          <div className="relative" ref={notifRef}>
             <IconButton
               icon={<Bell size={20} />}
               onClick={() =>
@@ -111,7 +132,7 @@ export default function MainContent({ children }: Props) {
               </div>
             )}
           </div>
-          <div className="relative">
+          <div className="relative" ref={profileRef}>
             <button
               className="flex items-center gap-2 cursor-pointer rounded py-2 px-3 bg-tema-3 text-sm hover:bg-tema-3-shadow"
               onClick={() =>
