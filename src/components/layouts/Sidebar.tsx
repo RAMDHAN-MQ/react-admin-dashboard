@@ -3,7 +3,7 @@ import ItemMenu from "../ui/ItemMenu";
 
 export default function Sidebar() {
   return (
-    <div className="side-kiri bg-tema-4 w-64 border-r border-r-tema-3">
+    <div className="side-kiri bg-tema-4 w-64 border-r border-r-tema-3 overflow-y-auto">
       <div className="nav border-b border-b-tema-3 h-16 py-5 px-6">
         <span className="text-xl font-semibold text-white">Admin</span>
       </div>

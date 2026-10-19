@@ -43,39 +43,43 @@ export default function Table({ column, data }: Props) {
         <tbody className="text-gray-300 bg-tema-4-shadow">
           {dataPage.length === 0 ? (
             <tr>
-              <td colSpan={column.length + 1} className="text-center px-6 py-2" >Tidak Ada Data</td>
-            </tr>
-          ):(dataPage.map((row, index) => (
-            <tr key={index} className="border-b border-b-tema-2 ">
-              {column.map((column) => (
-                <td key={column.key} className="px-6 py-2">
-                  {row[column.key]}
-                </td>
-              ))}
-              <td key={"aksi"} className="px-6 py-2">
-                <div className="flex gap-2">
-                  <Button
-                    icon={<Eye size={16} />}
-                    variant="primary"
-                    iconOnly={true}
-                    onClick={() => alert("btn view ditekan")}
-                  />
-                  <Button
-                    icon={<SquarePen size={16} />}
-                    variant="primary"
-                    iconOnly={true}
-                    onClick={() => alert("btn edit ditekan")}
-                  />
-                  <Button
-                    icon={<Trash size={16} />}
-                    variant="primary"
-                    iconOnly={true}
-                    onClick={() => alert("btn hapus ditekan")}
-                  />
-                </div>
+              <td colSpan={column.length + 1} className="text-center px-6 py-2">
+                Tidak Ada Data
               </td>
             </tr>
-          )))}
+          ) : (
+            dataPage.map((row, index) => (
+              <tr key={index} className="border-b border-b-tema-2 ">
+                {column.map((column) => (
+                  <td key={column.key} className="px-6 py-2">
+                    {row[column.key]}
+                  </td>
+                ))}
+                <td key={"aksi"} className="px-6 py-2">
+                  <div className="flex gap-2">
+                    <Button
+                      icon={<Eye size={16} />}
+                      variant="primary"
+                      iconOnly={true}
+                      onClick={() => alert("btn view ditekan")}
+                    />
+                    <Button
+                      icon={<SquarePen size={16} />}
+                      variant="primary"
+                      iconOnly={true}
+                      onClick={() => alert("btn edit ditekan")}
+                    />
+                    <Button
+                      icon={<Trash size={16} />}
+                      variant="primary"
+                      iconOnly={true}
+                      onClick={() => alert("btn hapus ditekan")}
+                    />
+                  </div>
+                </td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
 
