@@ -41,7 +41,11 @@ export default function Table({ column, data }: Props) {
           </tr>
         </thead>
         <tbody className="text-gray-300 bg-tema-4-shadow">
-          {dataPage.map((row, index) => (
+          {dataPage.length === 0 ? (
+            <tr>
+              <td colSpan={column.length + 1} className="text-center px-6 py-2" >Tidak Ada Data</td>
+            </tr>
+          ):(dataPage.map((row, index) => (
             <tr key={index} className="border-b border-b-tema-2 ">
               {column.map((column) => (
                 <td key={column.key} className="px-6 py-2">
@@ -71,7 +75,7 @@ export default function Table({ column, data }: Props) {
                 </div>
               </td>
             </tr>
-          ))}
+          )))}
         </tbody>
       </table>
 
