@@ -23,8 +23,52 @@ export default function MainContent({ children }: Props) {
     notifikasi: false,
   });
 
+  const [notif, setNotif] = useState([
+    {
+      id: 1,
+      type: "tambah",
+      judul: "Stok Mayonnaise bertambah 18",
+      waktu: 30,
+      read: true,
+    },
+    {
+      id: 2,
+      type: "habis",
+      judul: "Stok Mayonnaise habis",
+      waktu: 400,
+      read: true,
+    },
+    {
+      id: 3,
+      type: "beli",
+      judul: "Max membeli Mayoonaise 13",
+      waktu: 4000,
+      read: true,
+    },
+    {
+      id: 4,
+      type: "beli",
+      judul: "James membeli Tuna Fish 4",
+      waktu: 9000,
+      read: false,
+    },
+    {
+      id: 5,
+      type: "habis",
+      judul: "Stok Tattoo Kit habis",
+      waktu: 90000,
+      read: false,
+    },
+  ]);
+
+  function handleReadNotif(id: number) {
+    setNotif((prev) =>
+      prev.map((e) => (e.id === id ? { ...e, read: false } : e)),
+    );
+  }
+
   return (
-    <div className="main-content bg-tema-4 flex-1 overflow-y-auto">
+    <div className="main-content bg-tema-4 flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-primary">
       <div className="nav border-b border-b-tema-3 flex items-center justify-between h-16 p-5">
         <div className="nav-kiri flex gap-2 items-center font-semibold text-sm">
           <IconButton
@@ -35,11 +79,10 @@ export default function MainContent({ children }: Props) {
           <Breadcrumb />
         </div>
         <div className="nav-kanan flex gap-1 items-center text-white">
-          <IconButton icon={<Moon size={20} />} variant="" onClick={() => {}} />
+          <IconButton icon={<Moon size={20} />} onClick={() => {}} />
           <div className="relative">
             <IconButton
               icon={<Bell size={20} />}
-              variant=""
               onClick={() =>
                 setIsDrop((e) => ({
                   profile: false,
@@ -48,31 +91,22 @@ export default function MainContent({ children }: Props) {
               }
             />
             {isDrop.notifikasi && (
-              <div className="flex flex-col my-2 rounded absolute bg-tema-3-shadow w-80 right-0 top-full shadow max-h-80">
+              <div className="flex flex-col my-2 rounded absolute bg-tema-3-shadow w-96 right-0 top-full shadow max-h-80">
                 <div className="px-5 py-3 border-b border-b-tema-2">
                   Notifikasi
                 </div>
-                <ul className="overflow-y-scroll">
-                  <NotificationItem
-                    judul="judul x"
-                    waktu="30 detik yang lalu"
-                  />
-                  <NotificationItem
-                    judul="judul x"
-                    waktu="30 menit yang lalu"
-                  />
-                  <NotificationItem
-                    judul="judul x"
-                    waktu="5 jam yang lalu"
-                  />
-                  <NotificationItem
-                    judul="judul x"
-                    waktu="5 jam yang lalu"
-                  />
-                  <NotificationItem
-                    judul="judul x"
-                    waktu="5 jam yang lalu"
-                  />
+                <ul className="overflow-y-scroll scrollbar-thin scrollbar-thumb-primary">
+                  {notif.map((e) => (
+                    <NotificationItem
+                      key={e.id}
+                      id={e.id}
+                      judul={e.judul}
+                      waktu={e.waktu}
+                      type={e.type}
+                      read={e.read}
+                      onRead={handleReadNotif}
+                    />
+                  ))}
                 </ul>
               </div>
             )}

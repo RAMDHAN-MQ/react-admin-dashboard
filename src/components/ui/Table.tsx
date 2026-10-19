@@ -26,64 +26,68 @@ export default function Table({ column, data }: Props) {
   const dataPage = data.slice(startIndex, startIndex + itemsPerPage);
 
   return (
-    <div className="overflow-x-auto my-5 rounded">
-      <table className="w-full text-left table-auto">
-        <thead className="text-white border-b bg-tema-3">
-          <tr>
-            {column.map((e) => (
-              <th key={e.key} scope="col" className="px-6 py-2">
-                {e.head}
-              </th>
-            ))}
-            <th scope="col" className="px-6 py-2">
-              Aksi
-            </th>
-          </tr>
-        </thead>
-        <tbody className="text-gray-300 bg-tema-4-shadow">
-          {dataPage.length === 0 ? (
+    <>
+      <div className="my-5 rounded overflow-x-auto scrollbar-thumb-primary">
+        <table className="w-full text-left table-auto">
+          <thead className="text-white border-b bg-tema-3">
             <tr>
-              <td colSpan={column.length + 1} className="text-center px-6 py-2">
-                Tidak Ada Data
-              </td>
+              {column.map((e) => (
+                <th key={e.key} scope="col" className="px-6 py-2">
+                  {e.head}
+                </th>
+              ))}
+              <th scope="col" className="px-6 py-2">
+                Aksi
+              </th>
             </tr>
-          ) : (
-            dataPage.map((row, index) => (
-              <tr key={index} className="border-b border-b-tema-2 ">
-                {column.map((column) => (
-                  <td key={column.key} className="px-6 py-2">
-                    {row[column.key]}
-                  </td>
-                ))}
-                <td key={"aksi"} className="px-6 py-2">
-                  <div className="flex gap-2">
-                    <Button
-                      icon={<Eye size={16} />}
-                      variant="primary"
-                      iconOnly={true}
-                      onClick={() => alert("btn view ditekan")}
-                    />
-                    <Button
-                      icon={<SquarePen size={16} />}
-                      variant="primary"
-                      iconOnly={true}
-                      onClick={() => alert("btn edit ditekan")}
-                    />
-                    <Button
-                      icon={<Trash size={16} />}
-                      variant="primary"
-                      iconOnly={true}
-                      onClick={() => alert("btn hapus ditekan")}
-                    />
-                  </div>
+          </thead>
+          <tbody className="text-gray-300 bg-tema-4-shadow">
+            {dataPage.length === 0 ? (
+              <tr>
+                <td
+                  colSpan={column.length + 1}
+                  className="text-center px-6 py-2"
+                >
+                  Tidak Ada Data
                 </td>
               </tr>
-            ))
-          )}
-        </tbody>
-      </table>
-
-      <div className="flex justify-between my-3">
+            ) : (
+              dataPage.map((row, index) => (
+                <tr key={index} className="border-b border-b-tema-2 ">
+                  {column.map((column) => (
+                    <td key={column.key} className="px-6 py-2">
+                      {row[column.key]}
+                    </td>
+                  ))}
+                  <td key={"aksi"} className="px-6 py-2">
+                    <div className="flex gap-2">
+                      <Button
+                        icon={<Eye size={16} />}
+                        variant="primary"
+                        iconOnly={true}
+                        onClick={() => alert("btn view ditekan")}
+                      />
+                      <Button
+                        icon={<SquarePen size={16} />}
+                        variant="primary"
+                        iconOnly={true}
+                        onClick={() => alert("btn edit ditekan")}
+                      />
+                      <Button
+                        icon={<Trash size={16} />}
+                        variant="primary"
+                        iconOnly={true}
+                        onClick={() => alert("btn hapus ditekan")}
+                      />
+                    </div>
+                  </td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
+      <div className="flex justify-between my-5">
         <span className="text-white">
           Halaman {currentPage} dari {totalPage}
         </span>
@@ -104,6 +108,6 @@ export default function Table({ column, data }: Props) {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 }

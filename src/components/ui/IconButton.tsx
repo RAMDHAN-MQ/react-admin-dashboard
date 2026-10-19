@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 type Props = {
   icon: ReactNode;
   onClick: () => void;
-  variant: string;
+  variant?: string;
 };
 
 export default function IconButton({ icon, onClick, variant = "" }: Props) {
