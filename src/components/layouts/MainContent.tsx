@@ -111,6 +111,7 @@ export default function MainContent({ children, onClose }: Props) {
                   notifikasi: !e.notifikasi,
                 }))
               }
+              count={notif.filter((e) => e.read).length}
             />
             {isDrop.notifikasi && (
               <div className="flex flex-col my-2 rounded absolute bg-tema-3-shadow w-96 right-0 top-full shadow max-h-80">
