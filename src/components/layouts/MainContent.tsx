@@ -14,10 +14,11 @@ import { Link } from "react-router-dom";
 import NotificationItem from "../ui/NotificationItem";
 
 type Props = {
+  onClose: () => void;
   children: ReactNode;
 };
 
-export default function MainContent({ children }: Props) {
+export default function MainContent({ children, onClose }: Props) {
   const [isDrop, setIsDrop] = useState({
     profile: false,
     notifikasi: false,
@@ -95,7 +96,7 @@ export default function MainContent({ children }: Props) {
           <IconButton
             icon={<PanelLeftClose size={20} />}
             variant="text-primary"
-            onClick={() => {}}
+            onClick={onClose}
           />
           <Breadcrumb />
         </div>
