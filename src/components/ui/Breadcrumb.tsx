@@ -7,7 +7,11 @@ export default function Breadcrumb() {
   const pathSlice = location.pathname.split("/").filter((e) => e);
 
   if (pathSlice.length === 0) {
-    return <span className="text-gray-400 cursor-default">Dashboard</span>;
+    return (
+      <span className="text-gray-700 cursor-default dark:text-gray-400">
+        Dashboard
+      </span>
+    );
   }
 
   return (
@@ -23,7 +27,9 @@ export default function Breadcrumb() {
             {i > 0 && <ChevronRight size={16} className="text-gray-400" />}
 
             {isFirst ? (
-              <span className="text-gray-400 cursor-default">{label}</span>
+              <span className="text-gray-700 dark:text-gray-400 cursor-default">
+                {label}
+              </span>
             ) : (
               <Link
                 to={url}

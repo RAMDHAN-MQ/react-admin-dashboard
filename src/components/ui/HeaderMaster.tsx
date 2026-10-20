@@ -14,8 +14,10 @@ export default function HeaderMaster({ judul, keterangan, url }: Props) {
   return (
     <div className="flex justify-between items-center">
       <div className="text-white flex flex-col">
-        <span className="font-semibold text-2xl">{judul}</span>
-        <span className="text-gray-400">{keterangan}</span>
+        <span className="font-semibold text-2xl text-gray-700 dark:text-white">
+          {judul}
+        </span>
+        <span className="text-gray-500 dark:text-gray-400">{keterangan}</span>
       </div>
       <div className="">
         <Button

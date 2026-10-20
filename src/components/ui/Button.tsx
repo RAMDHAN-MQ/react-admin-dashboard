@@ -27,7 +27,7 @@ export default function Button({
       warna = "text-white bg-primary hover:bg-primary-shadow";
       break;
     case "cancel":
-      warna = "text-white font-bold hover:bg-tema-3-shadow";
+      warna = "text-gray-700 dark:text-white font-bold hover:bg-gray-200 dark:hover:bg-tema-3-shadow";
       break;
     default:
       warna = "";

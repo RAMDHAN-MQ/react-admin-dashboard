@@ -6,7 +6,7 @@ export default function FormPesanan() {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-tema-3 p-5 rounded">
+    <div className="bg-white dark:bg-tema-3 p-5 rounded">
       <form>
         <div className="grid grid-cols-2">
           <InputForm label="ID" type="inputText" placeholder="Masukkan ID..." />

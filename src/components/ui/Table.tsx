@@ -29,7 +29,7 @@ export default function Table({ column, data }: Props) {
     <>
       <div className="my-5 rounded overflow-x-auto scrollbar-thumb-primary">
         <table className="w-full text-left table-auto">
-          <thead className="text-white border-b bg-tema-3">
+          <thead className="text-gray-700 bg-white border-tema-2 border-b dark:text-white dark:bg-tema-3">
             <tr>
               {column.map((e) => (
                 <th key={e.key} scope="col" className="px-6 py-2">
@@ -41,7 +41,7 @@ export default function Table({ column, data }: Props) {
               </th>
             </tr>
           </thead>
-          <tbody className="text-gray-300 bg-tema-4-shadow">
+          <tbody className="bg-gray-100 text-gray-700 dark:text-gray-300 dark:bg-tema-4-shadow">
             {dataPage.length === 0 ? (
               <tr>
                 <td
@@ -88,7 +88,7 @@ export default function Table({ column, data }: Props) {
         </table>
       </div>
       <div className="flex justify-between my-5">
-        <span className="text-white">
+        <span className="text-gray-700 dark:text-white">
           Halaman {currentPage} dari {totalPage}
         </span>
         <div className="flex gap-2">

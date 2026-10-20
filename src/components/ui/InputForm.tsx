@@ -20,7 +20,7 @@ export default function InputForm({ label, type, placeholder }: Props) {
       formInput = "";
   }
   return (
-    <div className="text-white my-2">
+    <div className="text-gray-700 dark:text-white my-2">
       <label htmlFor="" className="block">
         {label}
       </label>

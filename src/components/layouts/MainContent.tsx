@@ -3,7 +3,7 @@ import {
   ChevronDown,
   LogOut,
   Moon,
-  PanelLeftClose,
+  PanelLeft,
   Settings,
   User,
 } from "lucide-react";
@@ -15,10 +15,11 @@ import NotificationItem from "../ui/NotificationItem";
 
 type Props = {
   onClose: () => void;
+  onDarkMode: () => void;
   children: ReactNode;
 };
 
-export default function MainContent({ children, onClose }: Props) {
+export default function MainContent({ children, onClose, onDarkMode }: Props) {
   const [isDrop, setIsDrop] = useState({
     profile: false,
     notifikasi: false,
@@ -90,18 +91,18 @@ export default function MainContent({ children, onClose }: Props) {
   }
 
   return (
-    <div className="main-content bg-tema-4 flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-primary">
-      <div className="nav border-b border-b-tema-3 flex items-center justify-between h-16 p-5">
+    <div className="main-content bg-tema-1 flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-primary dark:bg-tema-4">
+      <div className="nav border-b border-b-tema-2 flex items-center justify-between h-16 p-5 dark:border-b-tema-3">
         <div className="nav-kiri flex gap-2 items-center font-semibold text-sm">
           <IconButton
-            icon={<PanelLeftClose size={20} />}
-            variant="text-primary"
+            icon={<PanelLeft size={20} />}
+            variant="primary"
             onClick={onClose}
           />
           <Breadcrumb />
         </div>
         <div className="nav-kanan flex gap-1 items-center text-white">
-          <IconButton icon={<Moon size={20} />} onClick={() => {}} />
+          <IconButton icon={<Moon size={20} />} onClick={onDarkMode} />
           <div className="relative" ref={notifRef}>
             <IconButton
               icon={<Bell size={20} />}
@@ -114,8 +115,8 @@ export default function MainContent({ children, onClose }: Props) {
               count={notif.filter((e) => e.read).length}
             />
             {isDrop.notifikasi && (
-              <div className="flex flex-col my-2 rounded absolute bg-tema-3-shadow w-96 right-0 top-full shadow max-h-80">
-                <div className="px-5 py-3 border-b border-b-tema-2">
+              <div className="flex flex-col my-2 rounded absolute bg-white dark:bg-tema-3-shadow w-96 right-0 top-full shadow max-h-80">
+                <div className="px-5 py-3 border-b border-b-tema-2 text-gray-700 dark:text-white">
                   Notifikasi
                 </div>
                 <ul className="overflow-y-scroll scrollbar-thin scrollbar-thumb-primary">
@@ -136,7 +137,7 @@ export default function MainContent({ children, onClose }: Props) {
           </div>
           <div className="relative" ref={profileRef}>
             <button
-              className="flex items-center gap-2 cursor-pointer rounded py-2 px-3 bg-tema-3 text-sm hover:bg-tema-3-shadow"
+              className="flex items-center gap-2 cursor-pointer rounded py-2 px-3 text-sm bg-gray-500/10 text-gray-700 dark:bg-tema-3 dark:hover:bg-tema-3-shadow dark:text-white"
               onClick={() =>
                 setIsDrop((e) => ({
                   profile: !e.profile,
@@ -154,17 +155,17 @@ export default function MainContent({ children, onClose }: Props) {
               <ChevronDown size={16} strokeWidth={2} />
             </button>
             {isDrop.profile && (
-              <div className="flex flex-col my-2 rounded absolute bg-tema-3-shadow w-44 right-0 top-full shadow">
+              <div className="flex flex-col my-2 rounded absolute bg-white dark:bg-tema-3-shadow w-44 right-0 top-full shadow">
                 <Link
                   to=""
-                  className="flex gap-2 items-center px-3 py-2 hover:bg-tema-3"
+                  className="flex gap-2 items-center px-3 py-2 text-gray-700 hover:bg-gray-200 dark:hover:bg-tema-3 dark:text-white"
                 >
                   <User size={16} />
                   Profile
                 </Link>
                 <Link
                   to=""
-                  className="flex gap-2 items-center px-3 py-2 hover:bg-tema-3"
+                  className="flex gap-2 items-center px-3 py-2 text-gray-700 hover:bg-gray-200 dark:hover:bg-tema-3 dark:text-white"
                 >
                   <Settings size={16} />
                   Setting

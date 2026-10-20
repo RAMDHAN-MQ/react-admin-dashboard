@@ -23,14 +23,14 @@ export default function SearchFilter({
       <input
         type="text"
         placeholder="Cari..."
-        className="bg-tema-3 px-3 py-2 rounded text-white outline-0 w-80 mr-2"
+        className="bg-white dark:bg-tema-3 px-3 py-2 rounded dark:text-white outline-0 w-80 mr-2"
         value={search}
         onChange={(e) => onSearch(e.target.value)}
       />
       <select
         value={filter}
         onChange={(e) => onFilter(e.target.value)}
-        className="bg-tema-3 px-3 py-2 rounded text-white outline-0 w-36 border-r-12 border-tema-3"
+        className="bg-white dark:bg-tema-3 px-3 py-2 rounded text-gray-700 dark:text-white outline-0 w-36 border-r-12 border-white dark:border-tema-3"
       >
         {select.map((e) => (
           <option key={e.value} value={e.value}>

@@ -38,7 +38,7 @@ export default function NotificationItem({
   }
   return (
     <li
-      className={`flex justify-between items-center gap-4 p-5 cursor-pointer hover:bg-tema-3 ${read && "bg-blue-400/10"}`}
+      className={`flex justify-between items-center gap-4 p-5 cursor-pointer text-gray-700 hover:bg-blue-200/10 dark:text-white dark:hover:bg-tema-3 ${read && "bg-blue-400/10"}`}
       onClick={() => onRead(id)}
     >
       {icon}
