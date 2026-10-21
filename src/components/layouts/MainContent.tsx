@@ -145,7 +145,7 @@ export default function MainContent({ children, onClose, onDarkMode }: Props) {
                 }))
               }
             >
-              <span className="inline-flex items-center justify-center shrink-0 select-none rounded-full align-middle bg-elevated size-7 text-sm">
+              <span className="inline-flex items-center justify-center shrink-0 select-none rounded-full align-middle size-7 text-sm">
                 <img
                   src="https://picsum.photos/200"
                   className="h-full w-full rounded-[inherit] object-cover"
@@ -157,7 +157,7 @@ export default function MainContent({ children, onClose, onDarkMode }: Props) {
             {isDrop.profile && (
               <div className="flex flex-col my-2 rounded absolute bg-white dark:bg-tema-3-shadow w-44 right-0 top-full shadow">
                 <Link
-                  to=""
+                  to="settings/profile"
                   className="flex gap-2 items-center px-3 py-2 text-gray-700 hover:bg-gray-200 dark:hover:bg-tema-3 dark:text-white"
                 >
                   <User size={16} />

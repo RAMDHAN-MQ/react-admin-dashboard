@@ -24,10 +24,14 @@ export default function Button({
   let warna;
   switch (variant) {
     case "primary":
-      warna = "text-white bg-primary hover:bg-primary-shadow";
+      warna = "text-white bg-primary hover:bg-primary-shadow shadow-sm";
       break;
     case "cancel":
-      warna = "text-gray-700 dark:text-white font-bold hover:bg-gray-200 dark:hover:bg-tema-3-shadow";
+      warna =
+        "text-gray-700 shadow-sm dark:text-white font-bold hover:bg-gray-200 dark:hover:bg-tema-3-shadow";
+      break;
+    case "danger":
+      warna = "text-white shadow-sm bg-red-500 hover:bg-red-700";
       break;
     default:
       warna = "";

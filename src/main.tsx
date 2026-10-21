@@ -13,6 +13,7 @@ import FormPembeli from "./pages/Pembeli/FormPembeli.tsx";
 import FormPesanan from "./pages/Pesanan/FormPesanan.tsx";
 import FormProduk from "./pages/Produk/FormProduk.tsx";
 import FormUsers from "./pages/Users/FormUsers.tsx";
+import Profile from "./pages/Profile/Profile.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -29,6 +30,8 @@ createRoot(document.getElementById("root")!).render(
           <Route path="master/pesanan/form" element={<FormPesanan />}></Route>
           <Route path="master/produk/form" element={<FormProduk />}></Route>
           <Route path="master/users/form" element={<FormUsers />}></Route>
+
+          <Route path="settings/profile" element={<Profile />}></Route>
         </Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
