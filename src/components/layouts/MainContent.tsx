@@ -5,6 +5,7 @@ import {
   Moon,
   PanelLeft,
   Settings,
+  Sun,
   User,
 } from "lucide-react";
 import IconButton from "../ui/IconButton";
@@ -16,10 +17,16 @@ import NotificationItem from "../ui/NotificationItem";
 type Props = {
   onClose: () => void;
   onDarkMode: () => void;
+  isDark: boolean;
   children: ReactNode;
 };
 
-export default function MainContent({ children, onClose, onDarkMode }: Props) {
+export default function MainContent({
+  children,
+  onClose,
+  onDarkMode,
+  isDark,
+}: Props) {
   const [isDrop, setIsDrop] = useState({
     profile: false,
     notifikasi: false,
@@ -91,8 +98,8 @@ export default function MainContent({ children, onClose, onDarkMode }: Props) {
   }
 
   return (
-    <div className="main-content bg-tema-1 flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-primary dark:bg-tema-4">
-      <div className="nav border-b border-b-tema-2 flex items-center justify-between h-16 p-5 dark:border-b-tema-3">
+    <div className="main-content bg-tema-1 flex-1 min-w-0 h-screen flex flex-col dark:bg-tema-4">
+      <div className="nav border-b border-b-tema-2 flex items-center justify-between h-16 shrink-0 p-5 dark:border-b-tema-3">
         <div className="nav-kiri flex gap-2 items-center font-semibold text-sm">
           <IconButton
             icon={<PanelLeft size={20} />}
@@ -102,7 +109,10 @@ export default function MainContent({ children, onClose, onDarkMode }: Props) {
           <Breadcrumb />
         </div>
         <div className="nav-kanan flex gap-1 items-center text-white">
-          <IconButton icon={<Moon size={20} />} onClick={onDarkMode} />
+          <IconButton
+            icon={isDark ? <Sun size={20} /> : <Moon size={20} />}
+            onClick={onDarkMode}
+          />
           <div className="relative" ref={notifRef}>
             <IconButton
               icon={<Bell size={20} />}
@@ -183,7 +193,9 @@ export default function MainContent({ children, onClose, onDarkMode }: Props) {
         </div>
       </div>
 
-      <div className="content p-5">{children}</div>
+      <div className="content flex-1 min-h-0 overflow-y-auto scrollbar-thin scrollbar-thumb-primary p-5">
+        {children}
+      </div>
     </div>
   );
 }

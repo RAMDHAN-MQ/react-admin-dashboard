@@ -14,6 +14,7 @@ import FormPesanan from "./pages/Pesanan/FormPesanan.tsx";
 import FormProduk from "./pages/Produk/FormProduk.tsx";
 import FormUsers from "./pages/Users/FormUsers.tsx";
 import Profile from "./pages/Profile/Profile.tsx";
+import Tampilan from "./pages/Tampilan/Tampilan.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -32,6 +33,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="master/users/form" element={<FormUsers />}></Route>
 
           <Route path="settings/profile" element={<Profile />}></Route>
+          <Route path="settings/tampilan" element={<Tampilan />}></Route>
         </Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>

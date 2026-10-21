@@ -28,8 +28,12 @@ export default function App() {
   return (
     <div className={`flex h-screen ${isDark && "dark"}`}>
       <Sidebar isClose={isClose} />
-      <MainContent onClose={handleClose} onDarkMode={handleDarkMode}>
-        <Outlet />
+      <MainContent
+        onClose={handleClose}
+        onDarkMode={handleDarkMode}
+        isDark={isDark}
+      >
+        <Outlet context={{ isDark, setIsDark }} />
       </MainContent>
     </div>
   );
