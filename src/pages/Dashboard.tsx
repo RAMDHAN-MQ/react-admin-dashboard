@@ -1,3 +1,4 @@
+import CapaianBulanan from "../components/ui/CapaianBulanan";
 import GrafikPembelian from "../components/ui/GrafikPembelian";
 import PembelianTerbaru from "../components/ui/PembelianTerbaru";
 import TopProducts from "../components/ui/TopProducts";
@@ -72,6 +73,7 @@ export default function Dashboard() {
           <h2 className="text-xl font-semibold mb-4 dark:text-white">
             Capaian Bulanan
           </h2>
+          <CapaianBulanan />
         </div>
       </div>
     </>

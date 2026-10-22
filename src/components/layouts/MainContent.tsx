@@ -174,7 +174,7 @@ export default function MainContent({
                   Profile
                 </Link>
                 <Link
-                  to=""
+                  to="settings/tampilan"
                   className="flex gap-2 items-center px-3 py-2 text-gray-700 hover:bg-gray-200 dark:hover:bg-tema-3 dark:text-white"
                 >
                   <Settings size={16} />
