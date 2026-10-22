@@ -7,11 +7,8 @@ export default function App() {
   const [isClose, setIsClose] = useState(false);
   const [isDark, setIsDark] = useState(() => {
     const tema = localStorage.getItem("theme");
-    console.log(tema);
     return tema ? JSON.parse(tema) : false;
   });
-
-  console.log(isDark);
 
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(isDark));

@@ -1,19 +1,56 @@
+import GrafikPembelian from "../components/ui/GrafikPembelian";
+import TopProducts from "../components/ui/TopProducts";
+import { pembelian as detailPembelian } from "../data/DataPembelianDetail";
+
 export default function Dashboard() {
+  const topProducts = Object.values(
+    detailPembelian.reduce<Record<string, { barang: string; jumlah: number }>>(
+      (acc, item) => {
+        if (!acc[item.barang]) {
+          acc[item.barang] = {
+            barang: item.barang,
+            jumlah: 0,
+          };
+        }
+
+        acc[item.barang].jumlah += item.jumlah;
+        return acc;
+      },
+      {},
+    ),
+  ).sort((a, b) => b.jumlah - a.jumlah);
+
   return (
     <>
-      <div className="welcome-banner rounded-xl p-5 text-white bg-linear-to-r from-indigo-500 to-blue-500">
+      <div className="welcome-banner rounded-xl p-5 text-white bg-linear-to-r from-indigo-500 to-blue-500 shadow-sm">
         <h1 className="text-2xl font-semibold">Selamat Datang, Admin</h1>
         <small>
           Sudah terbeli <span className="font-bold">10 Barang</span> hari ini!
         </small>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 mt-4">
-        <div className="bg-tema-3 p-5 h-64 col-span-2 rounded-xl">card</div>
-        <div className="bg-tema-3 p-5 h-64 rounded-xl">card</div>
-        <div className="bg-tema-3 p-5 h-64 rounded-xl">card</div>
-        <div className="bg-tema-3 p-5 h-64 rounded-xl">card</div>
-        <div className="bg-tema-3 p-5 h-64 rounded-xl">card</div>
+      <div className="grid grid-cols-3 grid-rows-2 gap-4 mt-4">
+        <div className="bg-white shadow-sm dark:bg-tema-3-shadow p-5 rounded-xl col-span-2">
+          <GrafikPembelian />
+        </div>
+        <div className="bg-white shadow-sm dark:bg-tema-3-shadow p-5 rounded-xl row-span-2 col-start-3">
+          <h2 className="text-xl font-semibold dark:text-white">
+            Produk Terlaris
+          </h2>
+          {topProducts.map((e, i) => (
+            <TopProducts key={i} item={e} />
+          ))}
+        </div>
+        <div className="bg-white shadow-sm dark:bg-tema-3-shadow p-5 rounded-xl row-start-2">
+          <h2 className="text-xl font-semibold mb-4 dark:text-white">
+            Pembelian Terbaru
+          </h2>
+        </div>
+        <div className="bg-white shadow-sm dark:bg-tema-3-shadow p-5 rounded-xl row-start-2">
+          <h2 className="text-xl font-semibold mb-4 dark:text-white">
+            Capaian Bulanan
+          </h2>
+        </div>
       </div>
     </>
   );
