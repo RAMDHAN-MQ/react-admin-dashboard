@@ -1,6 +1,8 @@
 import GrafikPembelian from "../components/ui/GrafikPembelian";
+import PembelianTerbaru from "../components/ui/PembelianTerbaru";
 import TopProducts from "../components/ui/TopProducts";
 import { pembelian as detailPembelian } from "../data/DataPembelianDetail";
+import { row } from "../data/DataPemesanan";
 
 export default function Dashboard() {
   const topProducts = Object.values(
@@ -19,6 +21,18 @@ export default function Dashboard() {
       {},
     ),
   ).sort((a, b) => b.jumlah - a.jumlah);
+
+  const terbaru = row
+    .map((e) => {
+      const data = {
+        order: e.id,
+        tanggal: e.tanggal,
+        status: e.status,
+      };
+
+      return data;
+    })
+    .slice(-5);
 
   return (
     <>
@@ -45,6 +59,14 @@ export default function Dashboard() {
           <h2 className="text-xl font-semibold mb-4 dark:text-white">
             Pembelian Terbaru
           </h2>
+          {terbaru.map((e, i) => (
+            <PembelianTerbaru
+              key={i}
+              order={e.order}
+              tanggal={e.tanggal}
+              status={e.status}
+            />
+          ))}
         </div>
         <div className="bg-white shadow-sm dark:bg-tema-3-shadow p-5 rounded-xl row-start-2">
           <h2 className="text-xl font-semibold mb-4 dark:text-white">
